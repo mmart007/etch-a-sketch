@@ -25,7 +25,10 @@ console.log(squaresArr.length);
 
 squaresArr.forEach((square) => {
   square.addEventListener('mouseenter', (event) => {
-    event.currentTarget.style.backgroundColor='grey';
+    event.currentTarget.style.backgroundColor = 
+    `rgb(${Math.floor(Math.random()*257)}, 
+    ${Math.floor(Math.random()*257)},
+    ${Math.floor(Math.random()*257)})`;
   });
   square.addEventListener('mouseleave', (event) => {
     event.currentTarget.style.backgroundColor='white';
