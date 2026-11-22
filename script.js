@@ -1,5 +1,6 @@
 const container = document.querySelector('#container');
 let gridSize = Number(prompt('Enter a grid size between 1 and 100'));
+let opacity = 0.0;
 
 while (Number(gridSize) < 1 || Number(gridSize) > 100 || !Number.isInteger(gridSize)) {
     gridSize = Number(prompt('Please try again with an integer between 1 and 100'));
@@ -21,14 +22,17 @@ for (let i = 1; i <= gridSize**2; i++){
     container.appendChild(grid);
 }
 const squaresArr = document.querySelectorAll('.squares');
-console.log(squaresArr.length);
 
 squaresArr.forEach((square) => {
   square.addEventListener('mouseenter', (event) => {
+    if(opacity < 1.0){
+      opacity += 0.1;
+      }
     event.currentTarget.style.backgroundColor = 
-    `rgb(${Math.floor(Math.random()*257)}, 
+    `rgba(${Math.floor(Math.random()*257)}, 
     ${Math.floor(Math.random()*257)},
-    ${Math.floor(Math.random()*257)})`;
+    ${Math.floor(Math.random()*257)},
+    ${opacity})`;
   });
   square.addEventListener('mouseleave', (event) => {
     event.currentTarget.style.backgroundColor='white';
